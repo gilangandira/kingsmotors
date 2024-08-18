@@ -104,7 +104,7 @@
                                         <form action="{{ route('inventory.storeIngoing', $inventory->id) }}" method="POST">
                                             @csrf
                                             <input type="number" class="form-control" id="quantity-{{ $inventory->id }}"
-                                                name="quantity" min="1" max="{{ $inventory->quantity }}" required>
+                                                name="quantity" min="1" required>
                                             <button type="submit" class="btn btn-primary mt-2">Submit</button>
                                         </form>
                                     </td>

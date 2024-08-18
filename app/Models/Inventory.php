@@ -36,4 +36,8 @@ class Inventory extends Model
     {
         return $this->hasMany(IngoingItem::class);
     }
+    public function invoiceItem()
+    {
+        return $this->hasMany(InvoiceItem::class);
+    }
 }

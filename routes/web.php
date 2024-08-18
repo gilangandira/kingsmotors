@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\DistributionController;
-use App\Http\Controllers\SortingItemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\SortingItemController;
+use App\Http\Controllers\CashRegisterController;
+use App\Http\Controllers\DistributionController;
 
 // Routes accessible without authentication
 Route::get('/login', [AccountController::class, 'indexLogin'])->name('account.indexLogin');
@@ -53,6 +54,13 @@ Route::middleware(['isLogin'])->group(function () {
     Route::put('/brands/{brands}', [SortingItemController::class, 'updateBrand'])->name('brands.update');
     // Route to handle Brand deletion with reassignment
     Route::delete('/brand/{brand}', [SortingItemController::class, 'destroyBrand'])->name('brands.destroy');
+
+
+    Route::get('/cash-register', [CashRegisterController::class, 'showCart'])->name('cash_register.create');
+    Route::post('/cash-register/add-to-cart', [CashRegisterController::class, 'addToCart'])->name('cash_register.addToCart');
+    Route::delete('/cash-register/remove-from-cart/{inventoryId}', [CashRegisterController::class, 'removeFromCart'])->name('cash_register.removeFromCart');
+    Route::post('/cash-register/checkout', [CashRegisterController::class, 'checkout'])->name('cash_register.checkout');
+    Route::get('/cash-register/invoice/{id}', [CashRegisterController::class, 'showInvoice'])->name('cash_register.show');
 
 
 });

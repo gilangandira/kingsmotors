@@ -207,21 +207,22 @@ class DistributionController extends Controller
     public function storeIngoing(Request $request, Inventory $inventory)
     {
         $request->validate([
-            'quantity' => 'required|integer|min:1|max:' . $inventory->quantity,
+            'quantity' => 'required|integer|min:1',
         ]);
 
-        // Kurangi jumlah inventori
+        // Tambah jumlah inventori
         $inventory->quantity += $request->quantity;
         $inventory->save();
 
-        // Tambahkan barang keluar
+        // Tambah barang ingoing
         IngoingItem::create([
             'inventory_id' => $inventory->id,
             'quantity' => $request->quantity,
         ]);
 
-        return redirect()->route('inventory.index')
-            ->with('success', 'Outgoing item recorded successfully');
+        return redirect()->route('inventory.listIngoingItem')
+            ->with('success', 'Ingoing item recorded successfully');
     }
+
 
 }

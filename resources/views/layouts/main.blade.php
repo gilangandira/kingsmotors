@@ -89,6 +89,10 @@
             <li class="sidebar-item">
               <a href="{{ route('inventory.listBrands')}}" class="sidebar-link">Brands</a>
             </li>
+            <li class="sidebar-item">
+              <a href="{{ route('cash_register.create')}}" class="sidebar-link">Create Invoice</a>
+            </li>
+
           </ul>
         </li>
         <li class="sidebar-item">
