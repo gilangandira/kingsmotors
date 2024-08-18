@@ -89,10 +89,21 @@
             <li class="sidebar-item">
               <a href="{{ route('inventory.listBrands')}}" class="sidebar-link">Brands</a>
             </li>
+          </ul>
+        </li>
+        <li class="sidebar-item">
+          <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth"
+            aria-expanded="false" aria-controls="auth">
+            <i class="lni lni-cart-full"></i>
+            <span>Cart</span>
+          </a>
+          <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
             <li class="sidebar-item">
-              <a href="{{ route('cash_register.create')}}" class="sidebar-link">Create Invoice</a>
+              <a href="{{ route('cash_register.listInvoices')}}" class="sidebar-link">List Invoice</a>
             </li>
-
+            <li class="sidebar-item">
+              <a href="{{ route('cash_register.create')}}" class="sidebar-link">Cashier</a>
+            </li>
           </ul>
         </li>
         <li class="sidebar-item">

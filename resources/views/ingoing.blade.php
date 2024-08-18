@@ -9,7 +9,7 @@
 <div class="row justify-content-center">
     <div class="col-md-10">
         <div class="card">
-            <div class="card-header">Outgoing Item</div>
+            <div class="card-header">Ingoing Item</div>
             <div class="card-body">
                 <h1>Ingoing Items</h1>
                 <form action="{{ route('inventory.showIngoingForm') }}" method="GET" class="form-inline">
